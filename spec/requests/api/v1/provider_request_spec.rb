@@ -10,7 +10,7 @@ describe "provider endpoint" do
       @providers = [prov_1, prov_2, prov_3, prov_4].flatten
     end
 
-    it "it saves providers to the DB" do
+    it "it POSTS providers to the database" do
       providers = @providers.to_json
       test_prov = @providers.first
       post '/api/v1/providers', {providers: providers}
@@ -21,15 +21,29 @@ describe "provider endpoint" do
       expect(Provider.all.first.user_id).to eq(test_prov.user_id)
     end
 
-    it "gets all providers from database" do
+    it "GET a user's providers from database" do
       providers = @providers.to_json
       test_prov = @providers.first
-      post '/api/v1/providers', {providers: providers, user_id: test_prov.user_id}
+      post '/api/v1/providers', params: {providers: providers, user_id: test_prov.user_id}
 
       get "/api/v1/providers/#{test_prov.user_id}"
+
       expect(response).to be_success
       expect(response.code).to eq("200")
       expect(Provider.all.first.date).to eq(test_prov.date)
+    end
+
+    it 'GET all proivder data from the DB' do
+      providers = @providers.to_json
+      test_prov = @providers.first
+      post '/api/v1/providers', params: {providers: providers}
+
+      get "/api/v1/providers"
+
+      expect(response).to be_success
+      expect(response.code).to eq("200")
+      expect(Provider.all.first.date).to eq(test_prov.date)
+
     end
   end
 end
