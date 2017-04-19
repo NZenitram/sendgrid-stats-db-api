@@ -6,6 +6,8 @@ module Api::V1::ProvidersHelper
   def self.save_providers_to_database(providers)
     providers = self.parse_providers_json(providers)
 
-    binding.pry
+    providers.each do |provider|
+      Provider.create(provider)
+    end
   end
 end

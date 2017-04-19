@@ -45,7 +45,7 @@ FactoryGirl.define do
   end
 
   sequence(:user_id) do |n|
-    rand(4)
+    rand(1..5)
   end
 
   factory :provider do
