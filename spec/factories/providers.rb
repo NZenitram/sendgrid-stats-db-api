@@ -43,7 +43,11 @@ FactoryGirl.define do
   sequence(:unique_opens) do |n|
     rand(250)
   end
-  
+
+  sequence(:user_id) do |n|
+    rand(4)
+  end
+
   factory :provider do
     provider_name
     blocks
@@ -56,5 +60,6 @@ FactoryGirl.define do
     spam_reports
     unique_clicks
     unique_opens
+    user_id
   end
 end
