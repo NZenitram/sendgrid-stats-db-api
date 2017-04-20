@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "therubyracer"
 gem 'rails', '~> 5.0.2'
 gem 'pg', '~> 0.20.0'
 gem 'puma', '~> 3.0'
