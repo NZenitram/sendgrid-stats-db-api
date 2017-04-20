@@ -12,7 +12,6 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'faraday'
-# gem 'railties', '~> 5.0', '>= 5.0.0.1'
 gem 'rails_12factor', group: :production
 
 
