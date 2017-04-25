@@ -23,7 +23,8 @@ class Api::V1::ProvidersController < ApplicationController
   end
 
   def delivered
-    render json: Provider.where(provider_name: params["provider"]).pluck(:utc_date, :delivered)
+    event = params["event"].to_sym
+    render json: Provider.where(provider_name: params["provider"]).pluck(:utc_date, event)
   end
 
 end

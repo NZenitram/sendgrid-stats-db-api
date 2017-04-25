@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get '/providers/:user_id', to: 'providers#show'
       get '/providers-names', to: 'providers#names'
       get '/providers-names/:provider', to: 'providers#provider'
-      get '/provider-delivered/:provider', to: 'providers#delivered'
+      get '/provider-delivered/:provider/:event', to: 'providers#delivered'
     end
   end
 
