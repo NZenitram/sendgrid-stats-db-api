@@ -21,4 +21,9 @@ class Api::V1::ProvidersController < ApplicationController
   def provider
     render json: Provider.where(provider_name: params["provider"])
   end
+
+  def delivered
+    render json: Provider.where(provider_name: params["provider"]).pluck(:utc_date, :delivered)
+  end
+
 end
