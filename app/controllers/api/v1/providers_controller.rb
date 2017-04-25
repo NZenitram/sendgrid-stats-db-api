@@ -19,7 +19,6 @@ class Api::V1::ProvidersController < ApplicationController
   end
 
   def provider
-    binding.pry
     render json: Provider.where(provider_name: params["provider"]).to_json
   end
 end

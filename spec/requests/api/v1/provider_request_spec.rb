@@ -67,7 +67,7 @@ describe "provider endpoint" do
 
       get "/api/v1/providers/#{test_prov.provider_name}"
       data = JSON.parse(response.body)
-      binding.pry
+      
       expect(response).to be_success
 
     end
