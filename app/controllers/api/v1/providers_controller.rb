@@ -6,7 +6,7 @@ class Api::V1::ProvidersController < ApplicationController
   end
 
   def show
-    user_id = params["user_id"].to_i
+    user_id = params["slug"].to_i
     render json: Provider.where(user_id: user_id)
   end
 
@@ -15,6 +15,11 @@ class Api::V1::ProvidersController < ApplicationController
   end
 
   def names
-    render json: Provider.uniq.pluck(:provider_name)
+    render json: Provider.distinct.pluck(:provider_name)
+  end
+
+  def provider
+    binding.pry
+    render json: Provider.where(provider_name: params["provider"]).to_json
   end
 end

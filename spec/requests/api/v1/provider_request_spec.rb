@@ -55,9 +55,21 @@ describe "provider endpoint" do
       data = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(response.code).to eq("200") 
+      expect(response.code).to eq("200")
       expect(data).to be_an_instance_of(Array)
       expect(data[0]).to eq("Gmail")
+    end
+
+    it 'GETs all data for a provider' do
+      providers = @providers.to_json
+      test_prov = @providers.first
+      post '/api/v1/providers', params: {providers: providers}
+
+      get "/api/v1/providers/#{test_prov.provider_name}"
+      data = JSON.parse(response.body)
+      binding.pry
+      expect(response).to be_success
+
     end
   end
 end

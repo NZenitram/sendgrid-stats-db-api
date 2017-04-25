@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post '/providers', to: 'providers#create'
       get '/providers/:user_id', to: 'providers#show'
       get '/providers-names', to: 'providers#names'
+      get '/providers-names/:provider', to: 'providers#provider'
     end
   end
 
