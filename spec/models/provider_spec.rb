@@ -144,7 +144,6 @@ RSpec.describe Provider, type: :model do
 
       prov = build(:provider, date: "2016-1-01")
 
-
       provider = prov.save
 
       expect(provider).to eq(false)
