@@ -14,13 +14,19 @@ RSpec.describe Provider, type: :model do
 
   context 'validation testing' do
     it 'should save with all data' do
-      prov = build(:provider, date: "2016-1-01")
+      date = "2017-1-03"
+      utc = Provider.new.convert_date_time(date)
+
+      prov = build(:provider, date: date, utc_date: utc)
 
       prov.save
 
       expect(Provider.all.first.date).to eq(prov.date)
     end
     it 'should not save without a date' do
+      date = "2017-1-03"
+      utc = Provider.new.convert_date_time(date)
+
       prov = build(:provider)
 
       provider = prov.save
@@ -126,6 +132,18 @@ RSpec.describe Provider, type: :model do
     end
     it 'should not save without a user_id' do
       prov = build(:provider, user_id: nil, date: "2016-1-01")
+
+      provider = prov.save
+
+      expect(provider).to eq(false)
+      expect(Provider.first).to eq(nil)
+    end
+    it 'should not save without a UTC date' do
+      date = "2017-1-03"
+      utc = Provider.new.convert_date_time(date)
+
+      prov = build(:provider, date: "2016-1-01")
+
 
       provider = prov.save
 

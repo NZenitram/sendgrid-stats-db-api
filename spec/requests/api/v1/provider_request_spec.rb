@@ -3,10 +3,10 @@ require 'rails_helper'
 describe "provider endpoint" do
   context "POST poviders" do
     before(:each) do
-      prov_1 = build_list(:provider, 4, date: "2016-1-01")
-      prov_2 = build_list(:provider, 4, date: "2016-1-02")
-      prov_3 =  build_list(:provider, 4, date: "2016-1-03")
-      prov_4 =build_list(:provider, 4, date: "2016-1-04")
+      prov_1 = build_list(:provider, 4, date: "2016-1-01", utc_date: 1483401600000)
+      prov_2 = build_list(:provider, 4, date: "2016-1-02", utc_date: 1483401600000)
+      prov_3 =  build_list(:provider, 4, date: "2016-1-03", utc_date: 1483401600000)
+      prov_4 =build_list(:provider, 4, date: "2016-1-04", utc_date: 1483401600000)
       @providers = [prov_1, prov_2, prov_3, prov_4].flatten
     end
 
@@ -67,7 +67,7 @@ describe "provider endpoint" do
 
       get "/api/v1/providers/#{test_prov.provider_name}"
       data = JSON.parse(response.body)
-      
+
       expect(response).to be_success
 
     end

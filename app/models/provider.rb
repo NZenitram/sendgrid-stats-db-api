@@ -12,6 +12,7 @@ class Provider < ApplicationRecord
   validates :unique_clicks, presence: true
   validates :unique_opens, presence: true
   validates :user_id, presence: true
+  validates :utc_date, presence: true
 
   def convert_date_time(date)
     date.to_datetime.strftime('%Q').to_i
