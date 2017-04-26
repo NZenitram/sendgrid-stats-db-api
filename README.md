@@ -1,4 +1,4 @@
-# SendGrid Stats Database API
+# SendGrid Stats Databade API
 
 ![Travis-ci](https://travis-ci.org/NZenitram/sendgrid-stats-db-api.svg?branch=master)
 ![Code Climate](https://codeclimate.com/github/NZenitram/sendgrid-stats-db-api.svg)
