@@ -5,8 +5,8 @@ describe "provider endpoint" do
     before(:each) do
       prov_1 = build_list(:provider, 4, date: "2016-1-01")
       prov_2 = build_list(:provider, 4, date: "2016-1-02")
-      prov_3 =  build_list(:provider, 4, date: "2016-1-03")
-      prov_4 =build_list(:provider, 4, date: "2016-1-04")
+      prov_3 = build_list(:provider, 4, date: "2016-1-03")
+      prov_4 = build_list(:provider, 4, date: "2016-1-04")
       @providers = [prov_1, prov_2, prov_3, prov_4].flatten
     end
 

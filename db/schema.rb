@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425150103) do
+ActiveRecord::Schema.define(version: 20170426143148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "global_stats", force: :cascade do |t|
+    t.string   "date"
+    t.integer  "blocks"
+    t.integer  "bounce_drops"
+    t.integer  "bounces"
+    t.integer  "clicks"
+    t.integer  "deferred"
+    t.integer  "delivered"
+    t.integer  "invalid_emails"
+    t.integer  "opensprocessed"
+    t.integer  "requests"
+    t.integer  "spam_report_drops"
+    t.integer  "spam_reports"
+    t.integer  "unique_clicks"
+    t.integer  "unique_opens"
+    t.integer  "unsubscribe_drops"
+    t.integer  "unsubscribes"
+    t.bigint   "utc_date"
+    t.bigint   "int8"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "providers", force: :cascade do |t|
     t.string  "date"
