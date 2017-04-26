@@ -8,7 +8,7 @@ module Api::V1::ProvidersHelper
     providers.each do |provider|
       utc = Provider.new.convert_date_time(provider["date"])
       provider["utc_date"] = utc
-      Provider.create(provider)
+      Provider.find_or_create_by(provider)
     end
   end
 end

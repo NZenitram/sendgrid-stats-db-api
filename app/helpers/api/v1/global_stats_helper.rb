@@ -8,7 +8,7 @@ module Api::V1::GlobalStatsHelper
     global.each do |global|
       utc = GlobalStat.new.convert_date_time(global["date"])
       global["utc_date"] = utc
-      GlobalStat.create(global)
+      GlobalStat.find_or_create_by(global)
     end
   end
 end
