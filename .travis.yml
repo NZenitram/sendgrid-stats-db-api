@@ -8,4 +8,4 @@ bundler_args: --without production
 services:
   - postgresql
 before_script:
-  - psql -c "create database sendgrid-stats-db-api_test;" -U postgres
+  - psql -c "create database sendgrid_stats_db_api_test;" -U postgres
