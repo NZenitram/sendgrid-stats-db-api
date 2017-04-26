@@ -88,8 +88,8 @@ RSpec.describe GlobalStat, type: :model do
       expect(global_stat).to eq(false)
       expect(GlobalStat.first).to eq(nil)
     end
-    it 'should not save without opensprocessed' do
-      global = build(:global_stat, opensprocessed: nil, date: "2016-1-01")
+    it 'should not save without processed' do
+      global = build(:global_stat, processed: nil, date: "2016-1-01")
 
       global_stat = global.save
 

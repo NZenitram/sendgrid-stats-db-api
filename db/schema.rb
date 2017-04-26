@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426151106) do
+ActiveRecord::Schema.define(version: 20170426171030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170426151106) do
     t.integer  "deferred"
     t.integer  "delivered"
     t.integer  "invalid_emails"
-    t.integer  "opensprocessed"
+    t.integer  "processed"
     t.integer  "requests"
     t.integer  "spam_report_drops"
     t.integer  "spam_reports"

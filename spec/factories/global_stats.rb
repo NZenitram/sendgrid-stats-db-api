@@ -8,7 +8,7 @@ FactoryGirl.define do
     rand(10)
   end
 
-  sequence(:opensprocessed) do |n|
+  sequence(:processed) do |n|
     rand(50)
   end
 
@@ -36,7 +36,7 @@ FactoryGirl.define do
     deferred
     delivered
     invalid_emails
-    opensprocessed
+    processed
     requests
     spam_report_drops
     spam_reports

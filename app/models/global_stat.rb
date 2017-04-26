@@ -7,7 +7,7 @@ class GlobalStat < ApplicationRecord
   validates :deferred, presence: true
   validates :delivered, presence: true
   validates :invalid_emails, presence: true
-  validates :opensprocessed, presence: true
+  validates :processed, presence: true
   validates :requests, presence: true
   validates :spam_report_drops, presence: true
   validates :spam_reports, presence: true
