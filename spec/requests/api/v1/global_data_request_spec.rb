@@ -12,6 +12,7 @@ context 'global data endpoint' do
     it "it POSTS global_stats to the database" do
       globals = @globals.to_json
       test_global = @globals.first
+
       post '/api/v1/global-stats', {globals: globals}
 
       expect(response).to be_success

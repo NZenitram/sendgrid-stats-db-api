@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get '/providers-names', to: 'providers#names'
       get '/providers-names/:provider', to: 'providers#provider'
       get '/provider-delivered/:provider/:event', to: 'providers#delivered'
+      post '/global-stats', to: 'global_stats#create'
     end
   end
 
