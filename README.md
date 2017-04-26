@@ -1,28 +1,96 @@
 # SendGrid Stats Databade API
 
-![](https://travis-ci.org/NZenitram/sendgrid-stats-db-api.svg?branch=master)
-![](https://codeclimate.com/github/NZenitram/sendgrid-stats-db-api.svg)
+![Travis-ci](https://travis-ci.org/NZenitram/sendgrid-stats-db-api.svg?branch=master)
+![Code Climate](https://codeclimate.com/github/NZenitram/sendgrid-stats-db-api.svg)
 
+One Paragraph of project description goes here
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+```
+Ruby on Rails
+	- Rails version 5.0.1
+	- Ruby version 2.3.0 (2.3.1 should also work)
+	- Bundled with 1.13.6
+PostgreSQL
+```
 
-* Configuration
+If you don't have rails (or ruby) installed, this [tutorial](http://docs.railsbridge.org/intro-to-rails/) is a good place to start.
 
-* Database creation
+## Running the tests
 
-* Database initialization
+Run the test suite using RSpec.
 
-* How to run the test suite
+```
+$ rspec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Installing
 
-* Deployment instructions
+A step by step series of examples that tell you have to get a development env running
 
-* ...
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+## Authors
+
+* **Nicholas Martinez** - *Initial work* - [NZenitram](https://github.com/nzenitram)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
