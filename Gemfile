@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'faraday'
 gem 'rails_12factor', group: :production
+gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do
