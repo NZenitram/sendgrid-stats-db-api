@@ -68,10 +68,23 @@ describe "provider endpoint" do
 
       get "/api/v1/providers-names/#{test_prov.provider_name}"
       data = JSON.parse(response.body)
-
       expect(response).to be_success
       expect(data).to be_an_instance_of(Array)
       expect(data[0]["utc_date"]).to eq(Provider.first["utc_date"])
+    end
+
+    it 'GETs all data for a provider and event' do
+      providers = @providers.to_json
+      test_prov = @providers.first
+      post '/api/v1/providers', params: {providers: providers}
+
+      get "/api/v1/provider-delivered/#{test_prov.provider_name}/blocks"
+      data = JSON.parse(response.body)
+
+      expect(response).to be_success
+      expect(data).to be_an_instance_of(Array)
+      expect(data[0][0]).to eq(Provider.first["utc_date"])
+      expect(data[0][1]).to eq(Provider.first["blocks"])
     end
   end
 end

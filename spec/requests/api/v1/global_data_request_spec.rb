@@ -40,10 +40,24 @@ context 'global data endpoint' do
 
       get "/api/v1/global-stats"
       data = JSON.parse(response.body)
-      
+
       expect(response).to be_success
       expect(response.code).to eq("200")
       expect(GlobalStat.all.first.date).to eq(data.first["date"])
+    end
+    it 'GETs global-stats on per event basis' do
+      globals = @globals.to_json
+      test_global = @globals.first
+      post '/api/v1/global-stats', params: {globals: globals}
+
+      get "/api/v1/global-events/blocks"
+      data = JSON.parse(response.body)
+
+      expect(response).to be_success
+      expect(data).to be_an_instance_of(Array)
+      expect(data[0][0]).to eq(GlobalStat.first["utc_date"])
+      expect(data[0][1]).to eq(GlobalStat.first["blocks"])
+
     end
   end
 end

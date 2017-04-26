@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get '/global-stats', to: 'global_stats#index'
       post '/global-stats', to: 'global_stats#create'
       get '/global-stats/:user_id', to: 'global_stats#show'
+      get '/global-events/:event', to: 'global_stats#events'
     end
   end
 
