@@ -1,7 +1,7 @@
 # SendGrid Stats Databade API
 
 ![](https://travis-ci.org/NZenitram/sendgrid-stats-db-api.svg?branch=master)
-
+![](https://codeclimate.com/github/NZenitram/sendgrid-stats-db-api)
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
