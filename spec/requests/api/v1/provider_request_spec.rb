@@ -20,7 +20,6 @@ describe "provider endpoint" do
       expect(Provider.all.first.date).to eq(test_prov.date)
       expect(Provider.all.first.user_id).to eq(test_prov.user_id)
     end
-
     it "GET a user's providers from database" do
       providers = @providers.to_json
       test_prov = @providers.first
@@ -28,9 +27,11 @@ describe "provider endpoint" do
 
       get "/api/v1/providers/#{test_prov.user_id}"
 
+      data = JSON.parse(response.body)
+
       expect(response).to be_success
       expect(response.code).to eq("200")
-      expect(Provider.all.first.date).to eq(test_prov.date)
+      expect(Provider.all.first.date).to eq(data.first["date"])
     end
 
     it 'GET all provider data from the DB' do
