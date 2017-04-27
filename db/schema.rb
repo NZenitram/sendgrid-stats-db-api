@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426193750) do
+ActiveRecord::Schema.define(version: 20170427215307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20170426193750) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "opens"
+  end
+
+  create_table "provider_percentages", force: :cascade do |t|
+    t.string   "date"
+    t.float    "open_percentage"
+    t.float    "click_percentage"
+    t.float    "spam_report_percentage"
+    t.float    "unsubscribe_percentage"
+    t.bigint   "utc_date"
+    t.bigint   "int8"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "providers", force: :cascade do |t|

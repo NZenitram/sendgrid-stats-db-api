@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get '/global-stats/:user_id', to: 'global_stats#show'
       get '/global-events/:event', to: 'global_stats#events'
       get '/top-five', to: 'top_five#index'
+      get '/provider-percentages', to: 'provider_percentages#index'
     end
   end
 
