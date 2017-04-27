@@ -3,10 +3,10 @@ require 'rails_helper'
 describe "provider endpoint" do
   context "POST poviders" do
     before(:each) do
-      prov_1 = build_list(:provider, 4, date: "2016-1-01")
-      prov_2 = build_list(:provider, 4, date: "2016-1-02")
-      prov_3 = build_list(:provider, 4, date: "2016-1-03")
-      prov_4 = build_list(:provider, 4, date: "2016-1-04")
+      prov_1 = build_list(:provider, 7, date: "2016-1-01")
+      prov_2 = build_list(:provider, 7, date: "2016-1-02")
+      prov_3 = build_list(:provider, 7, date: "2016-1-03")
+      prov_4 = build_list(:provider, 7, date: "2016-1-04")
       @providers = [prov_1, prov_2, prov_3, prov_4].flatten
     end
 
@@ -58,7 +58,7 @@ describe "provider endpoint" do
       expect(response).to be_success
       expect(response.code).to eq("200")
       expect(data).to be_an_instance_of(Array)
-      expect(data[0]).to eq("Gmail")
+      expect(data[0]).to eq("Cox")
     end
 
     it 'GETs all data for a provider' do
