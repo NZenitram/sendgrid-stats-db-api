@@ -25,9 +25,10 @@ describe 'top-five providers endpoint' do
       get '/api/v1/top-five'
 
       data = JSON.parse(response.body)
-
+      
       expect(response).to be_success
       expect(response.code).to eq("200")
+      expect(data[0]).to eq(Provider.group(:provider_name).select('SUM(delivered) as delivered', :provider_name).order('delivered desc').first.provider_name)
     end
   end
 end
