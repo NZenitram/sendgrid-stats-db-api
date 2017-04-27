@@ -13,7 +13,7 @@ context 'global data endpoint' do
       globals = @globals.to_json
       test_global = @globals.first
 
-      post '/api/v1/global-stats', {globals: globals}
+      post '/api/v1/global-stats', params: {globals: globals}
 
       expect(response).to be_success
       expect(response.code).to eq("204")

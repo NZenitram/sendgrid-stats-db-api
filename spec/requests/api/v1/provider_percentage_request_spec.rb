@@ -12,11 +12,13 @@ describe "provider endpoint" do
     it 'creates perctage data in Provider Perctages table' do
       providers = @providers.to_json
       test_prov = @providers.first
-      post '/api/v1/providers', {providers: providers}
+      post '/api/v1/providers', params: {providers: providers}
+
+      open_percentage = ((@providers.first.opens).to_f / (@providers.first.delivered).to_f).round(2)
 
       data = ProviderPercentage.first
 
-      
+      expect(data.open_percentage).to eq(open_percentage)
     end
   end
 end

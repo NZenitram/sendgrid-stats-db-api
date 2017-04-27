@@ -19,13 +19,13 @@ describe 'top-five providers endpoint' do
       test_prov = @providers.first
       globals = @globals.to_json
       test_global = @globals.first
-      post '/api/v1/providers', {providers: providers}
+      post '/api/v1/providers', params: {providers: providers}
       post '/api/v1/global-stats', params: {globals: globals}
 
       get '/api/v1/top-five'
 
       data = JSON.parse(response.body)
-      
+
       expect(response).to be_success
       expect(response.code).to eq("200")
       expect(data[0]).to eq(Provider.group(:provider_name).select('SUM(delivered) as delivered', :provider_name).order('delivered desc').first.provider_name)

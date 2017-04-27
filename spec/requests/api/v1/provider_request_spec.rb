@@ -13,7 +13,7 @@ describe "provider endpoint" do
     it "it POSTS providers to the database" do
       providers = @providers.to_json
       test_prov = @providers.first
-      post '/api/v1/providers', {providers: providers}
+      post '/api/v1/providers', params: {providers: providers}
 
       expect(response).to be_success
       expect(response.code).to eq("204")
