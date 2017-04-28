@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       get '/global-events/:event', to: 'global_stats#events'
       get '/top-five', to: 'top_five#index'
       get '/provider-percentages', to: 'provider_percentages#index'
+      get '/provider-percentages/:user_id', to: 'provider_percentages#show'
+      get '/provider-percentages/:provider/:event', to: 'provider_percentages#events'
     end
   end
 
