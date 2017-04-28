@@ -36,6 +36,7 @@ FactoryGirl.define do
     deferred
     delivered
     invalid_emails
+    opens
     processed
     requests
     spam_report_drops

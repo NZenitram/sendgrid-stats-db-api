@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  sequence(:provider_name, (["AOL", "Gmail", "Yahoo", "Hotmail"].cycle)) do |n|
+  sequence(:provider_name, (["AOL", "Gmail", "Yahoo", "Hotmail", "Cox", "ATT", "iCloud"].cycle)) do |n|
     "#{n}"
   end
 

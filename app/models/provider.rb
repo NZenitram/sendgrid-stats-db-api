@@ -17,4 +17,8 @@ class Provider < ApplicationRecord
   def convert_date_time(date)
     date.to_datetime.strftime('%Q').to_i
   end
+
+  def fix_provider_names(name)
+    name.delete('&''.'' ')
+  end
 end
