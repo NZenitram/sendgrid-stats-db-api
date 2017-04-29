@@ -17,7 +17,7 @@ class Api::V1::ProvidersController < ApplicationController
   end
 
   def names
-    render json: Provider.distinct.pluck(:provider_name)
+    render json: Provider.group(:provider_name).select('SUM(delivered) as delivered', :provider_name).order('delivered desc').first(50).pluck(:provider_name)
   end
 
   def provider
