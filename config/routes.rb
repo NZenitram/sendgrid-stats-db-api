@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       # Providers Data
       get '/providers', to: 'providers#index'
       post '/providers', to: 'providers#create'
+      get '/providers-destroy/:user_id', to: 'providers#destroy'
       get '/providers/:user_id', to: 'providers#show'
       get '/providers-names/:user_id', to: 'providers#names'
       # get '/providers-names/:provider', to: 'providers#provider'

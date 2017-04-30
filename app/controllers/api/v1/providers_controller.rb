@@ -29,4 +29,8 @@ class Api::V1::ProvidersController < ApplicationController
     render json: Provider.where(provider_name: params["provider"], user_id: params["user_id"]).pluck(:utc_date, event)
   end
 
+  def destroy
+    Provider.where(user_id: params["user_id"]).destroy_all
+  end
+
 end
