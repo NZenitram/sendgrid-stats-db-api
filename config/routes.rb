@@ -6,21 +6,21 @@ Rails.application.routes.draw do
       get '/providers', to: 'providers#index'
       post '/providers', to: 'providers#create'
       get '/providers/:user_id', to: 'providers#show'
-      get '/providers-names', to: 'providers#names'
-      get '/providers-names/:provider', to: 'providers#provider'
+      get '/providers-names/:user_id', to: 'providers#names'
+      # get '/providers-names/:provider', to: 'providers#provider'
       # Provider Events Data
-      get '/provider-delivered/:provider/:event', to: 'providers#delivered'
+      get '/provider-delivered/:provider/:event/:user_id', to: 'providers#delivered'
       # Global Stats Data
       get '/global-stats', to: 'global_stats#index'
       post '/global-stats', to: 'global_stats#create'
       get '/global-stats/:user_id', to: 'global_stats#show'
-      get '/global-events/:event', to: 'global_stats#events'
+      get '/global-events/:event/:user_id', to: 'global_stats#events'
       # Top Five Providers
-      get '/top-five', to: 'top_five#index'
+      get '/top-five/:user_id', to: 'top_five#index'
       # Provider Percentage Data
       get '/provider-percentages', to: 'provider_percentages#index'
       get '/provider-percentages/:user_id', to: 'provider_percentages#show'
-      get '/provider-percentages/:provider/:event', to: 'provider_percentages#events'
+      get '/provider-percentages/:provider/:event/:user_id', to: 'provider_percentages#events'
     end
   end
 

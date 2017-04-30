@@ -16,7 +16,7 @@ csv.each do |row|
   prov.spam_reports  = row['spam_reports']
   prov.unique_clicks = row['unique_clicks']
   prov.unique_opens  = row['unique_opens']
-  prov.user_id       = 1
+  prov.user_id       = 18
   prov.utc_date      = Provider.new.convert_date_time(row['date'])
   prov.save
   puts "#{prov.provider_name}, #{prov.utc_date} saved."
@@ -28,7 +28,7 @@ csv.each do |row|
   percent.click_percentage = (row["clicks"].to_f / row["delivered"].to_f).round(4) * 100
   percent.spam_report_percentage = (row["spam_reports"].to_f / row["delivered"].to_f).round(4) * 100
   percent.utc_date = Provider.new.convert_date_time(row['date'])
-  percent.user_id = 1
+  percent.user_id = 18
   percent.save
   puts "#{percent.provider_name}, #{percent.utc_date} saved."
 end
