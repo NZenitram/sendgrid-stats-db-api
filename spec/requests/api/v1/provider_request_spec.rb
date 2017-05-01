@@ -25,7 +25,7 @@ describe "provider endpoint" do
       test_prov = @providers.first
       post '/api/v1/providers', params: {providers: providers, user_id: test_prov.user_id}
 
-      get "/api/v1/providers/#{test_prov.user_id}"
+      get "/api/v1/providers/#{test_prov.user_id}/"
 
       data = JSON.parse(response.body)
 
@@ -52,25 +52,24 @@ describe "provider endpoint" do
       test_prov = @providers.first
       post '/api/v1/providers', params: {providers: providers}
 
-      get "/api/v1/providers-names"
+      get "/api/v1/providers-names/#{test_prov.user_id}"
       data = JSON.parse(response.body)
 
       expect(response).to be_success
       expect(response.code).to eq("200")
       expect(data).to be_an_instance_of(Array)
-      expect(data[0]).to eq("Cox")
     end
 
-    it 'GETs all data for a provider' do
+    it 'GETs all data for a user' do
       providers = @providers.to_json
       test_prov = @providers.first
       post '/api/v1/providers', params: {providers: providers}
 
-      get "/api/v1/providers-names/#{test_prov.provider_name}"
+      get "/api/v1/providers-names/#{test_prov.user_id}"
       data = JSON.parse(response.body)
+
       expect(response).to be_success
       expect(data).to be_an_instance_of(Array)
-      expect(data[0]["utc_date"]).to eq(Provider.first["utc_date"])
     end
 
     it 'GETs all data for a provider and event' do
@@ -78,7 +77,7 @@ describe "provider endpoint" do
       test_prov = @providers.first
       post '/api/v1/providers', params: {providers: providers}
 
-      get "/api/v1/provider-delivered/#{test_prov.provider_name}/blocks"
+      get "/api/v1/provider-delivered/#{test_prov.provider_name}/blocks/#{test_prov.user_id}"
       data = JSON.parse(response.body)
 
       expect(response).to be_success

@@ -10,6 +10,6 @@ class Api::V1::ProviderPercentagesController < ApplicationController
 
   def events
     event = params["event"].to_sym
-    render json: ProviderPercentage.where(provider_name: params["provider"]).pluck(:utc_date, event)
+    render json: ProviderPercentage.where(provider_name: params["provider"], user_id: params["user_id"]).pluck(:utc_date, event)
   end
 end

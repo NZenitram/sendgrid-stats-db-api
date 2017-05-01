@@ -17,7 +17,7 @@ class Api::V1::ProvidersController < ApplicationController
   end
 
   def names
-    render json: Provider.distinct.pluck(:provider_name)
+    render json: Provider.where(user_id: params["user_id"]).group(:provider_name).select('SUM(delivered) as delivered', :provider_name).order('delivered desc').first(50).pluck(:provider_name)
   end
 
   def provider
@@ -26,7 +26,11 @@ class Api::V1::ProvidersController < ApplicationController
 
   def delivered
     event = params["event"].to_sym
-    render json: Provider.where(provider_name: params["provider"]).pluck(:utc_date, event)
+    render json: Provider.where(provider_name: params["provider"], user_id: params["user_id"]).pluck(:utc_date, event)
+  end
+
+  def destroy
+    Provider.where(user_id: params["user_id"]).destroy_all
   end
 
 end

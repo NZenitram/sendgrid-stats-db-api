@@ -17,6 +17,6 @@ class Api::V1::GlobalStatsController < ApplicationController
 
   def events
     event = params["event"].to_sym
-    render json: GlobalStat.pluck(:utc_date, event)
+    render json: GlobalStat.where(user_id: params["user_id"]).pluck(:utc_date, event)
   end
 end

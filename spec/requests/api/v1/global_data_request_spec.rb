@@ -49,8 +49,8 @@ context 'global data endpoint' do
       globals = @globals.to_json
       test_global = @globals.first
       post '/api/v1/global-stats', params: {globals: globals}
-
-      get "/api/v1/global-events/blocks"
+      
+      get "/api/v1/global-events/blocks/#{test_global.user_id}"
       data = JSON.parse(response.body)
 
       expect(response).to be_success
