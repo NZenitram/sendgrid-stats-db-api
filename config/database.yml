@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: sendgrid_stats_db_api_production
-  username: sendgrid-stats-db-api
+  username: zenitram
   password: <%= ENV['PRODUCTION_DATABASE'] %>
