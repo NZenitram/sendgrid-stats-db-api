@@ -1,4 +1,3 @@
-
 require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'raw_response.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
