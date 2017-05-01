@@ -32,4 +32,8 @@ group :development do
   gem 'listen', '~> 3.0.5'
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
