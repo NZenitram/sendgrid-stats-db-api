@@ -77,7 +77,7 @@ describe "provider endpoint" do
       test_prov = @providers.first
       post '/api/v1/providers', params: {providers: providers}
 
-      get "/api/v1/provider-delivered/#{test_prov.provider_name}/blocks"
+      get "/api/v1/provider-delivered/#{test_prov.provider_name}/blocks/#{test_prov.user_id}"
       data = JSON.parse(response.body)
 
       expect(response).to be_success

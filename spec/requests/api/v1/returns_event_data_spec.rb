@@ -14,7 +14,7 @@ describe 'provider event endpoints' do
       providers = @providers.to_json
       test_prov = @providers.first
 
-      get "/api/v1/provider-delivered/#{test_prov.provider_name}/delivered"
+      get "/api/v1/provider-delivered/#{test_prov.provider_name}/delivered/#{test_prov.user_id}"
       data = JSON.parse(response.body)
 
       expect(data[0]).to be_an_instance_of(Array)
