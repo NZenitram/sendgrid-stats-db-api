@@ -32,5 +32,34 @@ csv.each do |row|
   puts "#{percent.provider_name}, #{percent.utc_date} saved."
 end
 
+global_text = File.read(Rails.root.join('lib', 'seeds', 'global_data.csv'))
+csv_global = CSV.parse(global_text, :headers => true, :encoding => 'ISO-8859-1')
+csv_global.each do |row|
+  global = GlobalStat.new
+  global.date = row['date']
+  global.blocks = row['blocks']
+  global.bounce_drops = row['bounce_drops']
+  global.bounces = row['bounces']
+  global.clicks = row['clicks']
+  global.deferred = row['deferred']
+  global.delivered = row['delivered']
+  global.invalid_emails = row['invalid_emails']
+  global.opens = row['opens']
+  global.processed = row['processed']
+  global.requests = row['requests']
+  global.spam_report_drops = row['spam_report_drops']
+  global.spam_reports = row['spam_reports']
+  global.unique_clicks = row['unique_clicks']
+  global.unique_opens = row['unique_opens']
+  global.unsubscribe_drops = row['unsubscribe_drops']
+  global.unsubscribes = row['unsubscribes']
+  global.utc_date = GlobalStat.new.convert_date_time(row['date'])
+  global.user_id = 18
+  global.save
+  puts "#{global.date}, #{global.utc_date} saved."
+end
+
+
 puts "There are now #{Provider.count} rows in the providers table"
 puts "There are now #{ProviderPercentage.count} rows in the providers percentage table"
+puts "There are nw #{GlobalStat.count} row in the global stats table."
