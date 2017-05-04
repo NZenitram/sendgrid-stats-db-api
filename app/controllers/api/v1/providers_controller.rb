@@ -31,6 +31,8 @@ class Api::V1::ProvidersController < ApplicationController
 
   def destroy
     Provider.where(user_id: params["user_id"]).destroy_all
+    GlobalStat.where(user_id: params["user_id"]).destroy_all
+    ProviderPercentage.where(user_id: params["user_id"]).destroy_all
   end
 
 end

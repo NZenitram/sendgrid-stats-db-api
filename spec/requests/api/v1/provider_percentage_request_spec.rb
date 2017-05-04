@@ -14,7 +14,7 @@ describe "provider endpoint" do
       test_prov = @providers.first
       post '/api/v1/providers', params: {providers: providers}
 
-      open_percentage = ((@providers.first.opens).to_f / (@providers.first.delivered).to_f).round(2)
+      open_percentage = ((@providers.first.opens).to_f / (@providers.first.delivered).to_f).round(2) * 100
 
       data = ProviderPercentage.first
 
